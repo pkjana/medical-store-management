@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Store Medicine</title>		
+	</head>
+	<body>
+		<img src="/images/nodejs-logo.png">
+		<h1>Enter Medicines Details </h1>
+		<hr/>
+<form action="medicine-insert" method="post">
+<table>
+
+<tr>
+<td>
+<label>Enter medicine id</label>
+</td>
+<td>
+<input type="text" name="medicine_id" placeholder="medicine_id" required>
+</td>
+</tr>
+
+<tr>
+<td>
+<label>Enter Batch No</label>
+</td>
+<td>
+<input type="text" name="batch_no" placeholder="batch_no" required>
+</td>
+</tr>
+
+<tr>
+<td>
+<label>Enter Medicine Name</label>
+</td>
+<td>
+<input type="text" name="medicine_name" placeholder="medicine_name" required>
+</td>
+</tr>
+
+<tr>
+<td>
+<label>Enter MRP</label>
+</td>
+<td>
+<input type="number" name="mrp" placeholder="Maximum retail price" required>
+</td>
+</tr>
+
+<tr>
+<td>
+<label>Enter User Base Price</label>
+</td>
+<td>
+<input type="number" name="base_price" placeholder="base_price" required>
+</td>
+</tr>
+
+<tr>
+<td>
+<label>Enter User mfg_date</label>
+</td>
+<td>
+<input type="date" name="mfg_date" placeholder="mfg_date" required>
+</td>
+</tr>
+
+<tr>
+<td>
+<label>Enter User expire_date</label>
+</td>
+<td>
+<input type="date" name="expire_date" placeholder="expire_date" required>
+</td>
+</tr>	
+		
+
+<tr>
+<td colspan="2">
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+</td>
+</tr>	
+
+</form>
+
+</body>
+</html>

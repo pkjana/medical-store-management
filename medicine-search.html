@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Medicine</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("#msbtn").on('click', function(e){
+//console.log("inside func");
+        e.preventDefault();
+        var meid = $('input[name=medid]').val();
+	var data = {};
+	data.medicine_id = meid;
+	
+        $.ajax({
+		type: 'POST',
+		url: '/medicine-search',
+		data: JSON.stringify(data),
+		contentType: 'application/json',
+		dataType: 'JSON',      
+		success:function(response){
+		var dataTable="<table><tr><th>Medicin Details</th></tr>";
+dataTable=dataTable+"<tr><td>Medicin Name:</td><td>"+response[0].medicine_name+"</td></tr>";
+dataTable=dataTable+"<tr><td>Medicin MRP:</td><td>"+response[0].mrp+"</td></tr>";
+dataTable=dataTable+"</table>";
+		$('#medicine-data').html(dataTable);
+            		//console.log(JSON.stringify(response));
+        	},
+		error:function(jqXHR, textStatus, errorThrown){
+			console.log("Error:"+jqXHR);
+			$('#medicine-data').html("<b>Error occured</b>");
+		}
+	});	
+    });
+//clear button
+$("#mcbtn").on('click', function(e){
+	$('#msbox').val("");
+	$('#medicine-data').html("");
+});
+
+});
+</script>
+		
+	</head>
+	<body>
+		<img src="/images/nodejs-logo.png">
+		<h1>Welcome to medicine search</h1>
+		<hr/>
+
+<table>
+<tr>
+<th colspan="2">Medicine  search</th>
+</tr>
+
+<tr>
+<td>Enter Medicine Id:</td><td> <input id="msbox" type="text" name="medid"></td>
+</tr>
+<tr>
+<td colspan="2">
+<input id="msbtn" type="button" value="Search">
+<input id="mcbtn" type="button" value="Clear">
+</td>
+</tr>
+
+<div id="medicine-data"></div>
+
+</body>
+</html>
